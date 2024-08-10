@@ -3,7 +3,7 @@ import React from "react";
 import data from "./data.json";
 
 const Wedding = () => {
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <div id="wedding" className="bg-red-300 container py-12">

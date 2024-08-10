@@ -3,7 +3,7 @@
 import React from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-scroll";
 
 const menuItems = [
   {
@@ -23,12 +23,12 @@ const menuItems = [
     href: "baby",
   },
   {
-    name: "Design",
-    href: "design",
-  },
-  {
     name: "Arabic",
     href: "arabic",
+  },
+  {
+    name: "Designs",
+    href: "design",
   },
 ];
 const Navbar = () => {
@@ -55,8 +55,12 @@ const Navbar = () => {
             {menuItems.map((item) => (
               <li key={item.name}>
                 <Link
-                  href={item.href}
-                  className="text-lg font-os font-semibold text-gray-800 hover:text-gray-500"
+                  to={item.href}
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={1500}
+                  className="text-lg cursor-pointer font-os font-semibold text-gray-800 hover:text-gray-500"
                 >
                   {item.name}
                 </Link>
@@ -97,9 +101,13 @@ const Navbar = () => {
                   <nav className="grid gap-y-4">
                     {menuItems.map((item) => (
                       <Link
+                        to={item.href}
+                        spy={true}
+                        smooth={true}
+                        offset={-80}
+                        duration={1500}
                         key={item.name}
-                        href={item.href}
-                        className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50"
+                        className="-m-3 flex cursor-pointer items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50"
                       >
                         <span className="ml-3 text-md font-os font-bold text-gray-900">
                           {item.name}
